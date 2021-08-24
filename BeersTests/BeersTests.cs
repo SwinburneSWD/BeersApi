@@ -88,7 +88,8 @@ namespace BeersTests
         public void AddBeerTest() {
             this.beersTestList2.AddBeer(newBeer);
             
-            Assert.Equal(this.beersTestListAdded.BeersList, this.beersTestList1.BeersList);
+            //Assert.Equal(this.beersTestListAdded.BeersList, this.beersTestList2.BeersList);
+            Assert.Equal(4, this.beersTestList2.BeersList.Count);
         }
 
         [Fact]

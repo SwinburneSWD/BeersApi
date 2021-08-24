@@ -20,7 +20,7 @@ namespace BeersTests {
         [InlineData (350, 0, false)]
         [InlineData (0, 350, true)]
         [InlineData (0, 360, true)]
-        [InlineData (360, -10, false)]
+        [InlineData (375, -10, false)]
         public void Beer1_DrinkTest (int expected, int amountDrunk, bool expectedOpen) {
             beer1.Drink (amountDrunk);
             Assert.Equal (expected, beer1.Amount);
@@ -32,7 +32,7 @@ namespace BeersTests {
         [InlineData (255, 120, true)]
         [InlineData (375, 0, false)]
         [InlineData (0, 1000, true)]
-        [InlineData (385, -10, false)]
+        [InlineData (375, -10, false)]
         public void Beer2_DrinkTest (int expected, int amountDrunk, bool expectedOpen) {
             beer2.Drink (amountDrunk);
             Assert.Equal (expected, beer2.Amount);
@@ -44,7 +44,6 @@ namespace BeersTests {
         [InlineData (300, 75, true)]
         [InlineData (200, 175, true)]
         [InlineData (0, 376, true)]
-        [InlineData (374.5, 0.5, true)] // not sure what will happen here
         [InlineData (375, -10, false)]
         public void Beer3_DrinkTest (int expected, int amountDrunk, bool expectedOpen) {
             beer3.Drink (amountDrunk);

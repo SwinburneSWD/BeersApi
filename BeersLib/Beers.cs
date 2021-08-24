@@ -25,12 +25,12 @@ namespace BeersLib {
             this.Open = false;
         }
 
-        public int Drink (int amount) {
-            throw new NotImplementedException ();
+        public void Drink (int amount) {
+            throw new NotImplementedException;
         }
 
-        public bool OpenBeer () {
-            throw new NotImplementedException ();
+        public void OpenBeer () {
+            this.Open = true;
         }
     }
 
@@ -51,7 +51,32 @@ namespace BeersLib {
         }
 
         public List<Beer> GetLightestBeers() {
-            throw new NotImplementedException();
+            if(this.BeersList == null) {
+                return null;
+            }
+
+            if(this.BeersList.Count == 0) {
+                return null;
+            }
+
+            float currentLightestAbv = this.BeersList[0].Abv;
+            List<Beer> lightest = new List<Beer>();
+            
+            // find lightest Abv
+            foreach(Beer b in this.BeersList) {
+                if(b.Abv < currentLightestAbv) {
+                    currentLightestAbv = b.Abv;
+                }
+            }
+
+            // find all beers with Abv
+            foreach (Beer b in this.BeersList) {
+                if(b.Abv == currentLightestAbv) {
+                    lightest.Add(b);
+                }
+            }
+
+            return lightest;
         }
 
         public List<Beer> GetHeaviestBeers() {
@@ -64,7 +89,9 @@ namespace BeersLib {
         }
 
         public void AddBeer(Beer newBeer) {
-            throw new NotImplementedException();
+            if(newBeer != null) {
+                this.BeersList.Add(newBeer);
+            }
         }
 
         public void RemoveBeer(Beer removeBeer) {

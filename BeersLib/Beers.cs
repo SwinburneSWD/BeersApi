@@ -37,6 +37,7 @@ namespace BeersLib {
     public class Beers {
 
         public List<Beer> BeersList { get; set; }
+
         public Beers () {
             this.BeersList = new List<Beer>();
             this.BeersList.Add(new Beer ("Fosters", "CUB", 4.5f, 12, 350, 6f));
@@ -49,15 +50,15 @@ namespace BeersLib {
             BeersList = beersList;
         }
 
-        public Beer GetLightestBeer() {
+        public List<Beer> GetLightestBeers() {
             throw new NotImplementedException();
         }
 
-        public Beer GetHeaviestBeer() {
+        public List<Beer> GetHeaviestBeers() {
             throw new NotImplementedException();
         }
 
-        // return the heavier beer
+        // return the heavier beer.  If equal, return beer1
         public Beer CompareAbv(Beer beer1, Beer beer2) {
             throw new NotImplementedException();
         }

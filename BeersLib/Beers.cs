@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BeersLib {
     public class Beer {
@@ -92,7 +93,19 @@ namespace BeersLib {
         }
 
         public List<Beer> GetHeaviestBeers() {
-            throw new NotImplementedException();
+            if(this.BeersList == null) {
+                return null;
+            }
+
+            if(this.BeersList.Count == 0) {
+                return null;
+            }
+
+            // LINQ libraries
+            float maxAbv = this.BeersList.Max<Beer>(beer => beer.Abv);
+            List<Beer> heaviest = this.BeersList.FindAll(beer => beer.Abv == maxAbv);
+
+            return heaviest;
         }
 
         // return the heavier beer.  If equal, return beer1

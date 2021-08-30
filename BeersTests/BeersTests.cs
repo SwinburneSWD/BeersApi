@@ -103,7 +103,7 @@ namespace BeersTests
             Assert.Equal(3, beersTestList2.BeersList.Count);
 
             this.beersTestListEmpty.RemoveBeer(remove);
-            Assert.Equal(0, beersTestList2.BeersList.Count);
+            Assert.Equal(0, beersTestListEmpty.BeersList.Count);
         }
 
         [Fact]

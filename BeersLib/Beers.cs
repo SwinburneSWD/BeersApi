@@ -113,7 +113,7 @@ namespace BeersLib {
             if(beer2.Abv > beer1.Abv) {
                 return beer2;
             } 
-            
+
             return beer1;
             
         }
@@ -125,7 +125,7 @@ namespace BeersLib {
         }
 
         public void RemoveBeer(Beer removeBeer) {
-            throw new NotImplementedException();
+            this.BeersList.Remove(this.GetBeerByName(removeBeer.Name));
         }
 
         public void UpdateBeer(Beer updatedBeer) {

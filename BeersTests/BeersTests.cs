@@ -114,7 +114,7 @@ namespace BeersTests
 
             update = new Beer ("Glosters", "CBU", 4.5f, 12, 350, 7f);
             this.beersTestList2.UpdateBeer(update);
-            Assert.Equal(6f, this.beersTestList1.BeersList[0].Cost);
+            Assert.Equal(7f, this.beersTestList1.BeersList[0].Cost);
         }
 
         [Theory]

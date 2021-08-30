@@ -129,7 +129,16 @@ namespace BeersLib {
         }
 
         public void UpdateBeer(Beer updatedBeer) {
-            
+            // 1. Find the equivalent beer in the list - for
+            // 2, Replace if with updatedBeer
+
+            for(int i=0; i < this.BeersList.Count; i++) {
+                if(this.BeersList[i].Name == updatedBeer.Name) {
+                    this.BeersList[i] = updatedBeer;
+                    return;
+                }
+            }
+
         }
 
         public Beer GetBeerByName(string name) {

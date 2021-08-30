@@ -25,7 +25,7 @@ namespace BeersApi.Controllers {
         
         [HttpPost]
         public void Post(Beer newBeer) {
-            beers.AddBeer(newBeer);
+            beers.AddBeer(newBeer); 
         }
     }
 

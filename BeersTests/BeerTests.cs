@@ -20,7 +20,7 @@ namespace BeersTests {
         [InlineData (350, 0, false)]
         [InlineData (0, 350, true)]
         [InlineData (0, 360, true)]
-        [InlineData (375, -10, false)]
+        [InlineData (350, -10, false)]
         public void Beer1_DrinkTest (int expected, int amountDrunk, bool expectedOpen) {
             beer1.Drink (amountDrunk);
             Assert.Equal (expected, beer1.Amount);

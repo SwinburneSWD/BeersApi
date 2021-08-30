@@ -26,7 +26,19 @@ namespace BeersLib {
         }
 
         public void Drink (int amount) {
-            throw new NotImplementedException;
+            if(amount >= this.Amount) {
+                this.Amount = 0;
+            } else if (amount == 0) {
+                return;
+            } else if (amount < 0) {
+                return;
+            } else {
+                this.Amount -= amount;
+            }
+
+            if(!this.Open) {
+                this.OpenBeer();
+            }
         }
 
         public void OpenBeer () {
@@ -99,7 +111,7 @@ namespace BeersLib {
         }
 
         public void UpdateBeer(Beer updatedBeer) {
-            throw new NotImplementedException();
+            
         }
 
         public Beer GetBeerByName(string name) {

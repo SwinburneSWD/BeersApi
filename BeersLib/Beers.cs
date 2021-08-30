@@ -110,7 +110,12 @@ namespace BeersLib {
 
         // return the heavier beer.  If equal, return beer1
         public Beer CompareAbv(Beer beer1, Beer beer2) {
-            throw new NotImplementedException();
+            if(beer2.Abv > beer1.Abv) {
+                return beer2;
+            } 
+            
+            return beer1;
+            
         }
 
         public void AddBeer(Beer newBeer) {

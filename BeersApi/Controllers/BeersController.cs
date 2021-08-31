@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using BeersLib;
 using Microsoft.AspNetCore.Mvc;
+using BeersApi.Handlers;
 
 namespace BeersApi.Controllers {
     [ApiController]
@@ -8,6 +9,7 @@ namespace BeersApi.Controllers {
     public class BeersController : ControllerBase {
 
         static Beers beers = new Beers();
+        DbHandler dbh = new DbHandler();
 
         public BeersController() {
 
@@ -15,7 +17,7 @@ namespace BeersApi.Controllers {
 
         [HttpGet]        
         public List<Beer> Get () {
-            return beers.BeersList;
+            return dbh.GetAllBeers();
         }
 
         [HttpGet("{name}")]

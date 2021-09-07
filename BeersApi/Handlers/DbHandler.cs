@@ -85,6 +85,15 @@ namespace BeersApi.Handlers
             return foundBeer;
 
         }
+
+        public Beer addNewBeer(Beer newBeer) {
+            // TODO:  Code to insert newBeer into the DB goes here.
+            // Remember to parameterise you query.
+            // inserting into the db won't command.ExecuteReader().  A different method is used:  Google it.
+
+
+            return newBeer;
+        }
     }
 
 }

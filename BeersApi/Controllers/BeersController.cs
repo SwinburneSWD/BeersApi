@@ -27,6 +27,7 @@ namespace BeersApi.Controllers {
         
         [HttpPost]
         public void Post(Beer newBeer) {
+            // TODO:  this needs to use the database handler to add a new
             beers.AddBeer(newBeer); 
         }
     }

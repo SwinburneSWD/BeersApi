@@ -17,12 +17,12 @@ namespace BeersApi.Controllers {
 
         [HttpGet]        
         public List<Beer> Get () {
-            return dbh.GetAllBeers();
+            return this.dbh.GetAllBeers();
         }
 
         [HttpGet("{name}")]
         public Beer GetBeer(string name) {
-            return beers.GetBeerByName(name);
+            return this.dbh.GetBeerByName(name);
         }
         
         [HttpPost]

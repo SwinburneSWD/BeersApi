@@ -6,7 +6,7 @@ namespace BeersApi.Handlers
 {
     public class DbHandler
     {
-        static string connectionString = "Server=beersdb.cxirr1vtrojf.us-east-1.rds.amazonaws.com;Database=BeersDB;User Id=admin;password=abcd1234";
+        static string connectionString = "Server=beersdb.cxjl13cbth6s.us-east-1.rds.amazonaws.com;Database=BeersDB;User Id=admin;password=abcd1234";
         SqlConnection connection;
 
         public string Connect() {
@@ -18,30 +18,72 @@ namespace BeersApi.Handlers
         }
 
         public List<Beer> GetAllBeers() {
-            this.Connect();
-
-            SqlCommand command = new SqlCommand("SELECT * FROM Beer", connection);
-            
-            SqlDataReader reader = command.ExecuteReader();
             
             List<Beer> beers = new List<Beer>();
 
-            // result of command.ExecuteReader is an object that can only be traversed one way
-            while (reader.Read())
-            {
-                // convert the data from DB into the object neeeded
-                string name = reader.GetString(0);
-                string brewery = reader.GetString(1);
-                float abv = (float)reader.GetDecimal(2);
-                uint ibu = (uint)reader.GetInt32(3);
-                int amount = reader.GetInt32(4);
-                float cost = (float)reader.GetDecimal(5);
+            using (SqlConnection connection = new SqlConnection(connectionString)) {
+            
+                connection.Open();
 
-                beers.Add(new Beer(name, brewery, abv, ibu, amount, cost));
+                SqlCommand command = new SqlCommand("SELECT * FROM Beer", connection);
+                
+                SqlDataReader result = command.ExecuteReader();
+                
+                // result of command.ExecuteReader is an object that can only be traversed one way
+                while (result.Read())
+                {
+                    // convert the data from DB into the object neeeded
+                    string name = result.GetString(0);
+                    string brewery = result.GetString(1);
+                    float abv = (float)result.GetDecimal(2);
+                    uint ibu = (uint)result.GetInt32(3);
+                    int amount = result.GetInt32(4);
+                    float cost = (float)result.GetDecimal(5);
 
+                    beers.Add(new Beer(name, brewery, abv, ibu, amount, cost));
+
+                }
+            }
+            
+            return beers;
+        }
+
+        public Beer GetBeerByName(string name) {
+            string query = "SELECT * FROM Beer WHERE Name = @Name"; 
+            
+            Beer foundBeer = null;
+
+            using (SqlConnection connection = new SqlConnection(connectionString)) {
+                SqlCommand command = new SqlCommand(query, connection);
+
+                // SqlParameter is used to protect against SQL Injection
+                SqlParameter nameParam = new SqlParameter();
+                nameParam.ParameterName = "@Name";
+                nameParam.Value = name;
+
+                command.Parameters.Add(nameParam);
+
+                connection.Open();
+                SqlDataReader result = command.ExecuteReader();
+
+                // result of command.ExecuteReader is an object that can only be traversed one way
+                while (result.Read())
+                {
+                    // convert the data from DB into the object neeeded
+                    string beerName = result.GetString(0);
+                    string brewery = result.GetString(1);
+                    float abv = (float)result.GetDecimal(2);
+                    uint ibu = (uint)result.GetInt32(3);
+                    int amount = result.GetInt32(4);
+                    float cost = (float)result.GetDecimal(5);
+
+                    foundBeer = new Beer(beerName, brewery, abv, ibu, amount, cost);
+                }
+            
             }
 
-            return beers;
+            return foundBeer;
+
         }
     }
 

@@ -135,6 +135,7 @@ namespace BeersApi.Handlers
                 command.Parameters.Add(costParam);
                 command.Parameters.Add(openedParam);
 
+                // ExecuteNonQuery does not return an SQL Result.  Insert, Delete and Update apply.
                 rowsAffected = command.ExecuteNonQuery();
 
             }

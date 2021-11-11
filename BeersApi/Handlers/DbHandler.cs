@@ -7,7 +7,7 @@ namespace BeersApi.Handlers
     public class DbHandler
     {
         //static string connectionString = "Server=beersdb.cxjl13cbth6s.us-east-1.rds.amazonaws.com;Database=BeersDB;User Id=admin;password=abcd1234";
-        static string connectionString = "workstation id=swinburneswd.mssql.somee.com;packet size=4096;user id=swinburne_swd;pwd=TQ,wGzw@9"}\'=[Dm;data source=swinburneswd.mssql.somee.com;persist security info=False;initial catalog=swinburneswd";
+        static string connectionString = "workstation id=swinburneswd.mssql.somee.com;packet size=4096;user id=swinburne_swd;pwd=TQ,wGzw@9\"}'=[Dm;data source=swinburneswd.mssql.somee.com;persist security info=False;initial catalog=swinburneswd";
         SqlConnection connection;
 
         public string Connect() {

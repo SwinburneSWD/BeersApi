@@ -42,15 +42,15 @@ namespace BeersTests
             
         }
 
-        [Fact]
-        public void EmptyBeersListTests() {
-            Assert.Null(this.beersTestListEmpty.GetLightestBeers());
-            Assert.Null(this.beersTestListEmpty.GetHeaviestBeers());
+        // [Fact]
+        // public void EmptyBeersListTests() {
+        //     Assert.Null(this.beersTestListEmpty.GetLightestBeers());
+        //     Assert.Null(this.beersTestListEmpty.GetHeaviestBeers());
 
-            Assert.Equal(this.beersTestList1.BeersList[0], this.beersTestList1.CompareAbv(null, this.beersTestList1.BeersList[0]));
-            Assert.Equal(this.beersTestList1.BeersList[0], this.beersTestList1.CompareAbv(this.beersTestList1.BeersList[0], null));
+        //     Assert.Equal(this.beersTestList1.BeersList[0], this.beersTestList1.CompareAbv(null, this.beersTestList1.BeersList[0]));
+        //     Assert.Equal(this.beersTestList1.BeersList[0], this.beersTestList1.CompareAbv(this.beersTestList1.BeersList[0], null));
 
-        }
+        // }
 
         [Fact]
          public void GetLightestBeerTest() {

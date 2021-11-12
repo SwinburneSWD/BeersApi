@@ -7,8 +7,6 @@ namespace BeersApi.Controllers {
     [ApiController]
     [Route ("[controller]")]
     public class BeersController : ControllerBase {
-
-        static Beers beers = new Beers();
         DbHandler dbh = new DbHandler();
 
         public BeersController() {

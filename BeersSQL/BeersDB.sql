@@ -18,6 +18,7 @@ CREATE Table Beer (
 INSERT INTO Beer VALUES ('Fosters', 'CUB', 4.5, 10, 375, 6.5, 0);
 INSERT INTO Beer VALUES ('Fosters2', 'CUB', 4.5, 10, 375, 6.5, 0);
 INSERT INTO Beer VALUES ('Fosters3', 'CUB', 4.5, 10, 375, 6.5, 0);
+INSERT INTO Beer VALUES ('VB', 'CUB', 100, 10, 500, 7.5, 0);
 
 SELECT *
 FROM Beer
